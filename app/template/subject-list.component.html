@@ -1,0 +1,16 @@
+<h2>Subjects I want to Study</h2>
+<div>
+	<button (click)="printAll()">Print Plan</button>
+</div>
+<div>
+	<label>New subject name:</label> <input #subjectName />
+	<button (click)="add(subjectName.value); subjectName.value=''">Add</button>
+</div>
+<ul class="subjects">
+	<li *ngFor="let subject of subjects" [class.selected]="subject === selectedSubject" (click)="gotoDetail(subject)">
+		<span class="badge">{{subject.id}}</span> {{subject.name}}
+		<button class="delete"
+			(click)="delete(subject); $event.stopPropagation()">x</button>
+	</li>
+</ul>
+

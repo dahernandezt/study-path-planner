@@ -1,0 +1,24 @@
+<div *ngIf="subject">
+      <h2>{{subject.name}}</h2>
+      <div>
+		<label>New resource</label>
+		<br/>
+		<label>Name:</label> <input #resourceName />
+		<label>Url:</label> <input #resourceUrl />
+		<button (click)="add(resourceName.value,resourceUrl.value); resourceName.value=''; resourceUrl.value='' ">Add</button>
+	  </div>
+	  <br/>
+	  <div>
+        <label>Resources: </label>
+      </div>
+	  <br/>
+	  <div>
+		<ul>
+			<li *ngFor="let resource of subject.resources">
+				<a href="http://{{resource.url}}" target="_blank">{{resource.name}}</a>
+			</li>
+		</ul>
+	  </div>
+      <button (click)="goBack()">Back</button>
+      <button (click)="save()">Save</button>
+    </div>
